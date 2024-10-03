@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 
 from abc import ABC, abstractmethod
@@ -17,7 +18,12 @@ class Competition(ABC):
         pass
 
     def initiate_session(self):
-        driver = webdriver.Chrome()
+        options = Options()
+        options.add_argument("--headless=old")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--disable-gpu")  # Optional for Windows systems
+        driver = webdriver.Chrome(options=options) 
         return driver
 
     def calculate_percentage(self):

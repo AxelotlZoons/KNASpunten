@@ -1,12 +1,6 @@
-from competition.competition_factory import competition_factory
+from webapp import create_app
 
+app = create_app()
 
-def main():
-    url = "https://fencingtimelive.com/events/results/468F1734BD484EB0B1A3D7F9C478BFA2"
-    competition = competition_factory(url)
-    competition.calculate_percentage()
-
-
-if __name__ == '__main__':
-    main()
-    
+if __name__ == "__main__":
+    app.run(debug=True)
