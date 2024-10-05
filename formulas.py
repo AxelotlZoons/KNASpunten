@@ -77,12 +77,8 @@ def ranking_to_base_points(num):
 def points_formula(percentage, comp_type, final_ranking=1):
     
     base_points = ranking_to_base_points(final_ranking)
-    print(F"base points: ", base_points)
     
     points = int(base_points) * int(percentage)/100
-    print(F"points: ", points)
-
-    print(comp_type)
 
     # Jeugdschermer, die punten haalt op een wedstrijd van 33% of meer in een hogere leeftijdscategorie dan zijn eigen categorie, wordt het behaalde aantal punten met 1,1 vermenigvuldigd voor zijn eigen ranglijst.
     
@@ -92,13 +88,13 @@ def points_formula(percentage, comp_type, final_ranking=1):
 
     # Punten behaald op wedstrijden met een percentage van 50% of meer (met uitzondering van het NK en WB-wedstrijden) voor senioren en junioren ranglijsten worden met een factor 2 vermenigvuldigd.	
     if percentage > 50 and comp_type not in ['NK', 'WB']:
-        print('gggijobbu')
         points = 2*points
 
     # Punten behaald op wedstrijden met een percentage van 30% of meer (met uitzondering van het NK, ECC-wedstrijden en WB-wedstrijden) voor cadetten ranglijsten worden met een factor 2 vermenigvuldigd.	
     
     # Punten behaald op keurmerk-wedstrijden worden met een factor 1,1 vermenigvuldigd.	
-    # points = points * 1.1
+    # points = points * 1.1 ### gaat blijkbaar om nederlands wedstrijden met een keurmerk
+
     # Punten behaald op keurmerk-wedstrijden met 2 voorronden en A en B-poules of poule unique worden met een factor 1,05 vermenigvuldigd.
 
     return points
