@@ -3,7 +3,7 @@ from selenium.webdriver.chrome.options import Options
 
 
 from abc import ABC, abstractmethod
-from formulas import P_formula
+from formulas import percentage_formula, points_formula
 
 import time
 
@@ -17,6 +17,7 @@ class Competition(ABC):
     def extract_name(self):
         pass
 
+
     def initiate_session(self):
         options = Options()
         options.add_argument("--headless=old")
@@ -26,10 +27,12 @@ class Competition(ABC):
         driver = webdriver.Chrome(options=options) 
         return driver
 
+
     def calculate_percentage(self):
-        percentage = P_formula(self.sum_x, self.n, self.p)
+        percentage = percentage_formula(self.sum_x, self.n, self.p)
         print(f"percentage: {percentage}%")
         return percentage
+
 
 
 

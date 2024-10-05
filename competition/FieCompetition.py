@@ -10,14 +10,12 @@ class FieCompetition(Competition):
         super().__init__(url)  # Call the parent constructor
         self.reroute()
         self.name = self.extract_name()
-        print(self.name)
         self.extract_variables()
 
 
     def reroute(self):
         self.url = self.url.replace("competitions", "competition")
         self.url += "/entry/pdf?lang=en"
-        print(self.url)
 
 
     def extract_name(self):
@@ -36,14 +34,13 @@ class FieCompetition(Competition):
         self.sum_x = 0
         for competitor in competitors:
             if competitor in knas_worldranking:
-                # print(f"{competitor}: {knas_worldranking[competitor][0]}")
-                self.sum_x += knas_worldranking[competitor][0]       #selecting the points value from the tuple in ranking dict
-        print(self.sum_x)
+                self.sum_x += knas_worldranking[competitor][0]
+        print(F"sum_x: ", self.sum_x)
 
         self.n = len(competitors)
-        print(self.n)
+        print(F"n: ", self.n)
 
 
         country_counter = Counter(countries)
         self.p = min(7, sum(1 for count in country_counter.values() if count > 2))
-        print(self.p)
+        print(F"p: ", self.p)

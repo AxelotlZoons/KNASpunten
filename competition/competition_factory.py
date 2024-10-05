@@ -3,15 +3,16 @@ from .FtlCompetition import FtlCompetition
 
 
 def competition_factory(url):
+
     platform_classes = {
         "fie": FieCompetition,
         "ftl": FtlCompetition
     }
 
     platform = None
-    if url.startswith("https://fie.org"):
+    if "fie.org" in url:
         platform = "fie"
-    if url.startswith("https://fencingtimelive.com"):
+    if "fencingtimelive.com" in url:
         platform = "ftl"
 
     if platform in platform_classes:

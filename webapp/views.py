@@ -1,33 +1,30 @@
-from flask import Blueprint, request, render_template_string
+from flask import Blueprint, request, render_template, render_template_string
 from competition.competition_factory import competition_factory  # Ensure this import is correct
+from formulas import points_formula
 
 
 views = Blueprint('views', __name__)
 
 @views.route('/')
 def home():
-    return '''
-        <h1>Competition Percentage Calculator</h1>
-        <form action="/calculate" method="POST">
-            <input type="text" name="url" placeholder="Enter competition URL" required>
-            <button type="submit">Calculate</button>
-        </form>
-    '''
+
+    return render_template("home.html")
 
 @views.route('/calculate', methods=['POST'])
-def calculate_percentage():
+def calculate():
     url = request.form.get('url')
-    
-    if not url:
-        return "No URL provided", 400
+
+    competition = competition_factory(url)
+    percentage = competition.calculate_percentage()
+
+    comp_type = request.form.get('comp_type')
+    final_ranking = request.form.get('final_ranking')
+
+    points = points_formula(percentage, comp_type, final_ranking)
 
     try:
-        # Pass the URL to your competition logic
-        competition = competition_factory(url)
-        percentage = competition.calculate_percentage()
-        
-        # Return the result
-        return render_template_string(f'<h2>The calculated percentage is: {percentage}%</h2>')
+
+        return render_template_string(f'<h2> {percentage}% <br> {points}</h2>')
+
     except Exception as e:
-        # Handle any errors that occur during processing
         return render_template_string(f'<h2>Error occurred: {str(e)}</h2>'), 500
