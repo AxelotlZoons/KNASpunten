@@ -11,10 +11,12 @@
 </head>
 <body>
 
-    <div class="container">
+    <div class="inputContainer container">
         <h1>Points Calculator</h1>
         <form id="calcForm" action="/calculate" method="POST">
-            <input type="text" name="url" placeholder=" Enter competition URL" required><br>
+            <div class="question-row">
+                <input type="text" name="url" placeholder=" Enter competition URL" required><br>
+            </div>
             <div class="question-row">
                 <select name="comp_type">
                     <option value="WB">WB</option>
@@ -38,16 +40,26 @@
     <div class="container">
         <div class="result-item">
             <p>Percentage:</p>
-            <span id="percentageOdometer" class="odometer">0</span>
+            <div class="odometer-container">
+                <span id="percentageOdometer" class="odometer">0</span><span>%</span>
+            </div>
         </div>
         <div class="result-item">
             <p>Points:</p>
-            <span id="pointsOdometer" class="odometer">0</span>
+            <div class="odometer-container">
+                <span id="pointsOdometer" class="odometer">0</span>
+            </div>
         </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/odometer.min.js"></script>
     <script src="../static/js/script.js"></script>
 
+    <br>
+
+    <div class="disclaimerContainer">
+        <p>Disclaimer: Don't sue me</p>
+    </div>   
+    
 </body>
 </html>

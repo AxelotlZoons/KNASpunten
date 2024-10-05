@@ -27,13 +27,6 @@ input[type="text"] {
     border: 3px solid #569cd6;
 }
 
-/* Grouping styles for checkboxes */
-.question-row {
-    display: flex;
-    justify-content: center;
-    margin: 15px 0;
-}
-
 .checkable {
     padding: 5px
 }
@@ -60,6 +53,13 @@ button {
 
 button:hover {
     background-color: #9cdcfe;
+}
+
+/* Grouping styles for checkboxes */
+.question-row {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
 }
 
 .results-box {
@@ -93,4 +93,8 @@ button:hover {
     font-size: 24px;
     font-weight: bold;
     line-height: 1.2; /* Control vertical spacing */
+}
+
+.disclaimerContainer {
+    text-align: center;
 }
