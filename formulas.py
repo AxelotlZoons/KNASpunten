@@ -97,4 +97,4 @@ def points_formula(percentage, comp_type, final_ranking=1):
 
     # Punten behaald op keurmerk-wedstrijden met 2 voorronden en A en B-poules of poule unique worden met een factor 1,05 vermenigvuldigd.
 
-    return points
+    return round(points)

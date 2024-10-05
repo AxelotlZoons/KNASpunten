@@ -1,0 +1,96 @@
+/* Centering the entire page */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the viewport */
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Styling the container */
+.container {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 30px;  /* Increased padding */
+    border-radius: 10px;
+    box-shadow: 0 0 15px #569cd6;
+    width: 400px; /* Increased width */
+}
+
+/* Form input styling */
+input[type="text"] {
+    width: 80%;
+    padding: 10px 10px; /* Added more padding to the sides */
+    border-radius: 5px;
+    border: 3px solid #569cd6;
+}
+
+/* Grouping styles for checkboxes */
+.question-row {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.checkable {
+    padding: 5px
+}
+
+/* Form input styling for position */
+input[type="number"] {
+    width: 100px; /* Make the position input smaller */
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: center; /* Center align the text inside */
+}
+
+/* Button styling */
+button {
+    padding: 10px 20px;
+    border: 0px;
+    margin: 10px 0px;
+    background-color: #569cd6;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #9cdcfe;
+}
+
+.results-box {
+    padding: 10px;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between; /* Keeps label and value aligned properly */
+    align-items: center;  /* Vertically aligns both label and value */
+    font-size: 18px;
+    padding: 10px 0;
+}
+
+.result-item p {
+    margin: 0;
+    flex: 1;
+    text-align: left;
+}
+
+.result-item span {
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+}
+
+.odometer {
+    display: inline-block;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.2; /* Control vertical spacing */
+}

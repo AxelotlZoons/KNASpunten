@@ -4,77 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Points Calculator</title>
-    <style>
-        /* Centering the entire page */
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; /* Full height of the viewport */
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
+    <!-- Odometer CSS and JavaScript -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/odometer@0.4.8/themes/odometer-theme-default.css" />
+    <link rel="stylesheet" href="../static/css/style.css">
 
-        /* Styling the container */
-        .container {
-            text-align: center;
-            border: 1px solid #ccc;
-            padding: 30px;  /* Increased padding */
-            border-radius: 10px;
-            box-shadow: 0 0 30px rgba(15, 15, 150, 0.5);
-            width: 400px; /* Increased width */
-        }
-
-        /* Form input styling */
-        input[type="text"] {
-            width: 80%;
-            padding: 10px 10px; /* Added more padding to the sides */
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        /* Grouping styles for checkboxes */
-        .question-row {
-            display: flex;
-            justify-content: center;
-            margin: 15px 0;
-        }
-        
-        .checkable {
-            padding: 5px
-        }
-
-        /* Form input styling for position */
-        input[type="number"] {
-            width: 100px; /* Make the position input smaller */
-            padding: 5px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            text-align: center; /* Center align the text inside */
-        }
-
-        /* Button styling */
-        button {
-            padding: 10px 20px;
-            border: 0px;
-            margin: 10px 0px;
-            background-color: rgba(10, 10, 200, 0.5);
-            color: rgb(255, 255, 255);
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: rgba(10, 10, 100, 0.5);
-        }
-
-    </style>
 </head>
 <body>
 
     <div class="container">
         <h1>Points Calculator</h1>
-        <form action="/calculate" method="POST">
+        <form id="calcForm" action="/calculate" method="POST">
             <input type="text" name="url" placeholder=" Enter competition URL" required><br>
             <div class="question-row">
                 <select name="comp_type">
@@ -88,9 +27,27 @@
             <div class="question-row">
                 <input type="number" name="final_ranking" placeholder="Final ranking" min=1>
             </div>
-            <button type="submit">Calculate</button>
+            <button id="calcButton" type="submit">Calculate</button>
         </form>
+
     </div>
+
+    <br>
+
+    <!-- Results -->
+    <div class="container">
+        <div class="result-item">
+            <p>Percentage:</p>
+            <span id="percentageOdometer" class="odometer">0</span>
+        </div>
+        <div class="result-item">
+            <p>Points:</p>
+            <span id="pointsOdometer" class="odometer">0</span>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/odometer.min.js"></script>
+    <script src="../static/js/script.js"></script>
 
 </body>
 </html>
