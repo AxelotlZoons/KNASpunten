@@ -55,13 +55,13 @@ def ranking_to_base_points(num):
     6: 820,
     7: 810,
     8: 800,
-    range(9, 12): 700,
-    range(13, 16): 600,
-    range(17, 24): 500,
-    range(25, 32): 400,
-    range(33, 48): 350,
-    range(49, 64): 300,
-    range(65, 96): 250,
+    range(9, 13): 700,
+    range(13, 17): 600,
+    range(17, 25): 500,
+    range(25, 33): 400,
+    range(33, 49): 350,
+    range(49, 65): 300,
+    range(65, 97): 250,
     range(97, 129): 200
     }
 
@@ -97,4 +97,5 @@ def points_formula(percentage, comp_type, final_ranking=1):
 
     # Punten behaald op keurmerk-wedstrijden met 2 voorronden en A en B-poules of poule unique worden met een factor 1,05 vermenigvuldigd.
 
+    print(points)
     return round(points)
