@@ -1,2 +1,4 @@
 venv
 *.pyc
+get_worldranking.py
+test_locally.py
